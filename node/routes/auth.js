@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
-
+  console.log("check");
   try {
     // Check if the email exists in the database
     const user = await User.findOne({ email });
