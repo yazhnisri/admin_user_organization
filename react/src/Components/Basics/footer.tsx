@@ -6,7 +6,7 @@ const Footer = () => {
         <AppBar position="fixed" sx={{ top: 'auto', bottom: 0, width: '100%', textAlign: 'center' }}>
             <Toolbar>
                 <Typography variant="body2" color="textSecondary">
-                   copyright © Since 2007
+                   copyright © Since 2024
                 </Typography>
             </Toolbar>
         </AppBar>
