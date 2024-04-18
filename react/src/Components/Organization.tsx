@@ -41,33 +41,22 @@ const Header = () => {
         numberOfEmployees: yup.number().required('Number of Employees is required'),
     }),
         
-        onSubmit: async (values) => {
-            try {
-                await axios.post('http://localhost:3000/api/organizations', values, {
-                    headers: {
-                        Authorization: `Bearer ${localStorage.getItem('token')}`
-                    }
-                })
-                .then((response)=>{
-                  console.log('Organization added successfully:', response);
-                  if(response.data.status===true){
-                    console.log("ifffffff")
-                  toast.success(response.data.message)
-                  setOpenPopup(false);
-              
+    onSubmit: async (values) => {
+        try {
+            const response = await axios.post('http://localhost:3000/api/organizations', values, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
-                else{
-                  console.log("elseeeeee")
-                  alert(response.data.message)
-                    toast.error(response.data.message);
-                }
-                })
-              
-               
-            } catch (error) {
-                console.error('Error adding organization:', error);
-            }
-        },
+            });
+            
+            console.log('Organization added successfully:', response);
+            toast.success("Organization data added successfully")
+            window.location.reload()
+            setOpenPopup(false);
+        } catch (error) {
+            console.error('Error adding organization:', error);
+        }
+    },
     });
 
     const handleMenu = (event:any) => {
