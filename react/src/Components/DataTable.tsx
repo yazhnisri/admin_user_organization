@@ -26,7 +26,7 @@ const DataTable = () => {
             }
         };
         fetchData();
-    }, []);
+    }, [data]);
 
     const columns:any = React.useMemo(
         () => [
